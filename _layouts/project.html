@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
+</head>
+
+<body>
+
+<main id="content" class="container" role="main">
+  <!-- Project Content -->
+  <a href="/#projects" class="back-link" onclick="history.back(); return false;">
+  ← Back
+</a>
+  {{ content }}
+</main>
+
+<!-- Screenshot Modal -->
+<div id="screenshot-modal" class="screenshot-modal">
+  <span class="modal-close">&times;</span>
+  <img class="modal-image" id="modal-image">
+</div>
+
+<script>
+  const modal = document.getElementById("screenshot-modal");
+  const modalImg = document.getElementById("modal-image");
+  const closeBtn = document.querySelector(".modal-close");
+
+  document.querySelectorAll(".screenshots-grid img").forEach(img => {
+    img.addEventListener("click", () => {
+      modal.classList.add("open");
+      modalImg.src = img.src;
+    });
+  });
+
+  closeBtn.onclick = () => modal.classList.remove("open");
+  modal.onclick = e => {
+    if (e.target === modal) modal.classList.remove("open");
+  };
+</script>
+
+</body>
+</html>
