@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "6YH495FWJP.com.youxel.cerqel",
+        "paths": ["/task/*", "/invite/*"]
+      }
+    ]
+  }
+}
